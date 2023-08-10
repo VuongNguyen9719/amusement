@@ -1,0 +1,642 @@
+
+.ims-resizeable-text {
+    font-family: Roboto, Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    font-style: normal;
+}
+
+/**** TEXT AREA *****/
+.ims-resizeable-text {
+    width: 100%;
+    border: none;
+    height: auto;
+}
+
+.ims-resizeable-text textarea {
+    width: 100%;
+    resize: none;
+    outline: none;
+    border: 1px solid #e2e2e2;
+    background-color: #fff;
+    border-radius: 4px;
+    box-sizing: border-box;
+    padding: 10px;
+    margin: 0px;
+    font-size: 16px;
+    color: #333333;
+    color: rgb(51 51 51 / var(--tw-text-opacity));
+}
+.ims-resizeable-text.disabled textarea {
+    background-color: rgba(0, 0, 0, 0.1);
+    cursor: no-drop;
+}
+.ims-resizeable-text textarea:hover {
+    border: 1px solid #cacaca;
+}
+.ims-resizeable-text textarea:focus {
+    outline: 1px auto rgba(16, 149, 234, 0.7);
+}
+
+.ims-resizeable-text > label,
+.ims-textarea > label {
+    display: block;
+    margin-bottom: 10px;
+    color: #666666;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+.ims-resizeable-text > label .lb-required,
+.ims-textarea > label .lb-required {
+    color: #f44141;
+    margin-left: 5px;
+}
+
+.ims-resizeable-text .fake-highlight-wrap {
+    position: relative;
+    background: #fff;
+}
+
+.ims-resizeable-text .fake-highlight-wrap ._highlight-backrop {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0;
+    color: transparent;
+    overflow: hidden;
+    white-space: pre-wrap;
+    word-wrap: break-word; /*font style của backdrop phải giống font style của text area để highlight đúng vị trí các từ*/
+    line-height: 1.4em;
+    font-family: Roboto, Arial, Helvetica, sans-serif;
+    padding: 10px;
+    font-size: 14px;
+}
+
+.ims-resizeable-text .fake-highlight-wrap ._highlight-backrop mark {
+    background-color: #ff0;
+    color: transparent !important;
+}
+
+.ims-resizeable-text .fake-highlight-wrap textarea {
+    position: relative;
+    display: block;
+    background-color: transparent;
+    line-height: 1.4em;
+    font-family: Roboto, Arial, Helvetica, sans-serif;
+    padding: 10px;
+    font-size: 14px;
+}
+
+.ims-textarea {
+    width: 100%;
+}
+
+.ims-textarea textarea {
+    width: 100%;
+    height: 100%;
+    resize: vertical;
+    outline: none;
+    border: 1px solid #e2e2e2;
+    background-color: #fff;
+    border-radius: 4px;
+    box-sizing: border-box;
+    padding: 10px;
+    margin: 0px;
+    font-size: 14px;
+    color: #333333;
+}
+
+.ims-textarea textarea:hover {
+    border: 1px solid #cacaca;
+}
+
+.ims-textarea textarea:focus {
+    outline: 1px auto rgba(16, 149, 234, 0.7);
+}
+
+/**** DATE-TIME PICKER***/
+.ims-datetime-picker {
+    font-size: 14px;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    position: relative;
+    line-height: 1.2;
+}
+
+.ims-datetime-picker > label {
+    display: block;
+    color: #666666;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+.ims-datetime-picker > input {
+    background: url('/src/assets/images/date-picker.png') #fff 13px center no-repeat !important;
+    background-size: 10px !important;
+    text-indent: 24px;
+    font-size: 14px;
+    text-align: left;
+    padding: 0px 10px;
+    border: solid 1px #cad8e5;
+    height: 38px;
+    line-height: 38px;
+    border-radius: 4px;
+}
+.ims-datetime-picker.disable > input {
+    background-color: #cad8e5 !important;
+    cursor: no-drop;
+}
+
+.ims-datetime-picker > input:hover {
+    border: 1px solid #cad8e5;
+}
+
+.ims-datetime-picker > input:focus {
+    outline: 1px auto #2ea2c7;
+}
+
+.ims-datetime-picker .minWidthInput {
+    width: 178px;
+}
+
+.ims-datetime-picker * {
+    box-sizing: border-box;
+}
+
+.ims-datetime-picker .calendar {
+    position: absolute;
+    z-index: 999;
+    background: white;
+    width: 246px;
+    padding: 10px;
+    color: #333333;
+    border-radius: 4px;
+    border: 1px solid #e2e2e2;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    /*overflow: hidden;*/
+}
+
+.ims-datetime-picker .calendar.calendar-show {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 100ms linear;
+}
+.ims-datetime-picker .calendar.calendar-show:before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 7px solid transparent;
+    border-bottom-color: #fff;
+    z-index: 2;
+    top: -14px;
+    left: 6px;
+}
+.ims-datetime-picker .calendar.calendar-show:after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 7px solid transparent;
+    border-bottom-color: #e2e2e2;
+    z-index: 1;
+    top: -15px;
+    left: 6px;
+}
+
+.ims-datetime-picker .calendar.calendar-show.on-top:before {
+    top: auto;
+    border-bottom-color: transparent;
+    border-top-color: #fff;
+    bottom: -14px;
+}
+.ims-datetime-picker .calendar.calendar-show.on-top:after {
+    top: auto;
+    border-bottom-color: transparent;
+    border-top-color: #e2e2e2;
+    bottom: -15px;
+}
+
+.ims-datetime-picker .calendar.calendar-hide {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 100ms, opacity 100ms linear;
+}
+
+.ims-datetime-picker .calendar .calendar-content-wrap {
+    padding: 0px;
+}
+
+.ims-datetime-picker .calendar .month-header {
+    width: 100%;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.ims-datetime-picker .calendar .month-header .next-month,
+.ims-datetime-picker .calendar .month-header .prev-month {
+    width: 24px;
+    height: 24px;
+    flex: none;
+    background: transparent url('/src/assets/images/next-arrow.png') center center no-repeat;
+    cursor: pointer;
+}
+
+.ims-datetime-picker .calendar .month-header .prev-month {
+    transform: rotate(180deg);
+}
+
+.ims-datetime-picker .calendar .month-header > i:hover {
+    background-color: #eaeaea;
+    border-radius: 100%;
+}
+
+.ims-datetime-picker .calendar .month-header > i.disabled:hover {
+    background-color: transparent;
+}
+
+.ims-datetime-picker .calendar .month-header .next-month.disabled,
+.ims-datetime-picker .calendar .month-header .prev-month.disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.ims-datetime-picker .calendar .week-header {
+    width: 100%;
+    padding-bottom: 10px;
+    border-bottom: solid 1px #e2e2e2;
+    margin-bottom: 5px;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+}
+
+.ims-datetime-picker .calendar .week-header .cell {
+    width: 28px;
+    height: 28px;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #333333;
+    font-weight: 500;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2px;
+    flex: none;
+}
+
+.ims-datetime-picker .calendar .months {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    height: 160px;
+}
+
+.ims-datetime-picker .calendar .months .month {
+    position: absolute;
+    width: 224px;
+    display: flex;
+    flex-direction: column;
+}
+
+.ims-datetime-picker .calendar .months .month.current {
+    left: 0;
+}
+
+.ims-datetime-picker .calendar .months .month.other {
+    left: 250px;
+}
+
+.ims-datetime-picker .calendar .months .month.other.right {
+    left: -250px;
+}
+
+.ims-datetime-picker .calendar .months .month.sliding {
+    transition: transform 250ms ease;
+    -webkit-transition: -webkit-transform 250ms ease;
+}
+
+.ims-datetime-picker .calendar .months .month.sliding.left {
+    transform: translate3d(-250px, 0, 0);
+    -webkit-transform: translate3d(-250px, 0, 0);
+}
+
+.ims-datetime-picker .calendar .months .month.sliding.right {
+    transform: translate3d(250px, 0, 0);
+    -webkit-transform: translate3d(250px, 0, 0);
+}
+
+.ims-datetime-picker .calendar .months .week {
+    width: 100%;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+}
+
+.ims-datetime-picker .calendar .months .week .day {
+    height: 28px;
+    width: 28px;
+    font-size: 12px;
+    padding: 0px;
+    cursor: pointer;
+    text-align: center;
+    box-sizing: border-box;
+    color: #333333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2px;
+    flex: none;
+    border-radius: 100%;
+}
+
+.ims-datetime-picker .calendar .months .week .day:hover {
+    background: #eaeaea;
+}
+
+.ims-datetime-picker .calendar .months .week .day.other-month {
+    color: #a7afb2;
+}
+
+.ims-datetime-picker .calendar .months .week .day.disabled {
+    color: #a7afb2;
+    cursor: not-allowed;
+    position: relative;
+}
+
+.ims-datetime-picker .calendar .months .week .day.disabled:after {
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 20px;
+    text-align: center;
+    background: #333;
+    transform: rotate(45deg);
+}
+
+.ims-datetime-picker .calendar .months .week .day.disabled:hover {
+    background: transparent !important;
+}
+
+.ims-datetime-picker .calendar .months .week .day.today {
+    border: 1px solid #1095ea;
+}
+
+.ims-datetime-picker .calendar .months .week .day.selected {
+    background: #1f9ffc;
+    color: #fff;
+}
+
+.ims-datetime-picker .time-picker-wrap {
+    display: table;
+    width: 100%;
+    padding-top: 10px;
+    margin-top: 10px;
+    border-top: 1px solid #e2e2e2;
+    font-size: 14px;
+    color: #333;
+}
+
+.ims-datetime-picker .divTableRow {
+    display: table-row;
+}
+
+.ims-datetime-picker .divTableCell,
+.divTableHead {
+    display: table-cell;
+    padding: 2px 6px 2px 3px;
+    text-align: left;
+}
+
+.ims-datetime-picker .divTableBody {
+    display: table-row-group;
+}
+
+.ims-datetime-picker .divTableCell._display-times {
+    text-align: right;
+}
+
+.ims-datetime-picker .time-picker-wrap input[type='range'] {
+    /*removes default webkit styles*/
+    -webkit-appearance: none; /*fix for FF unable to apply focus style bug */
+    border: 1px solid white;
+    width: 100% !important;
+}
+
+.ims-datetime-picker .time-picker-wrap input[type='range']::-webkit-slider-runnable-track {
+    height: 2px;
+    background: #d5d9db;
+    border: none;
+    border-radius: 1px;
+}
+
+.ims-datetime-picker .time-picker-wrap input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 100%;
+    background: #fff;
+    border: 1px solid #d5d9db;
+    margin-top: -6px;
+}
+
+.ims-datetime-picker .time-picker-wrap input[type='range']:focus {
+    outline: none;
+}
+
+.ims-datetime-picker .time-picker-wrap input[type='range']:focus::-webkit-slider-runnable-track {
+    background: #d5d9db;
+}
+
+.ims-datetime-picker .time-picker-wrap input[type='range']::-moz-range-track {
+    height: 2px;
+    background: #d5d9db;
+    border: none;
+    border-radius: 1px;
+}
+
+.ims-datetime-picker .time-picker-wrap input[type='range']::-moz-range-thumb {
+    height: 16px;
+    width: 16px;
+    border-radius: 100%;
+    background: #fff;
+    border: 1px solid #d5d9db;
+    margin-top: -6px;
+}
+
+/*hide the outline behind the border*/
+.ims-datetime-picker .time-picker-wrap input[type='range']:-moz-focusring {
+    outline: 1px solid white;
+    outline-offset: -1px;
+}
+
+.ims-datetime-picker .time-picker-wrap input[type='range']::-ms-track {
+    height: 5px; /*remove bg colour from the track, we'll use ms-fill-lower and ms-fill-upper instead */
+    background: transparent; /*leave room for the larger thumb to overflow with a transparent border */
+    border-color: transparent;
+    border-width: 6px 0; /*remove default tick marks*/
+    color: transparent;
+}
+
+.ims-datetime-picker .time-picker-wrap input[type='range']::-ms-fill-lower {
+    background: #777;
+    border-radius: 10px;
+}
+
+.ims-datetime-picker .time-picker-wrap input[type='range']::-ms-fill-upper {
+    background: #ddd;
+    border-radius: 10px;
+}
+
+.ims-datetime-picker .time-picker-wrapinput[type='range']::-ms-thumb {
+    height: 16px;
+    width: 16px;
+    border-radius: 100%;
+    background: #fff;
+    border: 1px solid #d5d9db;
+    margin-top: -6px;
+}
+
+.ims-datetime-picker .time-picker-wrap input[type='range']:focus::-ms-fill-lower {
+    background: #888;
+}
+
+.ims-datetime-picker .time-picker-wrap input[type='range']:focus::-ms-fill-upper {
+    background: #ccc;
+}
+
+.ims-datetime-picker .time-picker-wrap input[type='range']:hover::-webkit-slider-thumb {
+    cursor: pointer;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.ims-datetime-picker .time-picker-wrap input[type='range']:active::-webkit-slider-thumb {
+    cursor: pointer;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.ims-datetime-picker .time-picker-wrap input[type='range']:hover {
+    cursor: pointer;
+}
+
+.ims-datetime-picker .time-picker-wrap .content_range_input::-ms-tooltip {
+    display: none;
+}
+
+.ims-datetime-picker.label-date-picker {
+    height: 0 !important;
+    width: 0 !important;
+}
+
+/******* CHECKBOX + RADIO *******/
+
+.ims-checkbox,
+.ims-radio {
+    font-size: 14px;
+    position: relative;
+}
+
+.ims-checkbox input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+}
+
+.ims-checkbox .checkbox-label {
+    font-size: 14px;
+    color: #666666;
+    user-select: none;
+    position: relative;
+    padding-left: 22px;
+    cursor: pointer;
+}
+
+.ims-checkbox input[type="checkbox"] + .checkbox-label:before {
+    content: "";
+    display: block;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    background: #ffffff;
+    border: 1px solid #e2e2e2;
+    box-sizing: border-box;
+    border-radius: 3px;
+    position: absolute;
+    left: 0px;
+    top: -1px;
+}
+
+.ims-checkbox input[type="checkbox"]:hover + .checkbox-label:before {
+    border-color: #cacaca;
+}
+
+.ims-checkbox input[type="checkbox"]:checked + .checkbox-label:before {
+    border-color: rgba(16, 149, 234, 0.7);
+}
+
+.ims-checkbox input[type="checkbox"]:checked + .checkbox-label:after {
+    content: "";
+    width: 7px;
+    height: 10px;
+    display: block;
+    border: solid rgba(16, 149, 234, 0.7);
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    position: absolute;
+    top: 2px;
+    left: 6px;
+}
+
+.ims-checkbox input[type="checkbox"]:disabled + .checkbox-label {
+    color: #999999;
+    cursor: not-allowed;
+}
+
+.ims-checkbox input[type="checkbox"]:disabled + .checkbox-label:before {
+    background: #f5f6f8;
+    border: 1px solid rgba(103, 113, 129, 0.3);
+    cursor: not-allowed;
+}
+
+.ims-checkbox input[type="checkbox"]:disabled:checked + .checkbox-label:before {
+    background: #f5f6f8;
+    border: 1px solid rgba(103, 113, 129, 0.3);
+}
+
+.ims-checkbox input[type="checkbox"]:disabled:checked + .checkbox-label:after {
+    border-color: rgba(103, 113, 129, 0.3);
+}
+
+.ims-checkbox.small .checkbox-label {
+    font-size: 12px;
+    padding-left: 18px;
+}
+
+.ims-checkbox.small input[type="checkbox"] + .checkbox-label:before {
+    width: 14px;
+    height: 14px;
+    top: 0px;
+}
+
+.ims-checkbox.small input[type="checkbox"]:checked + .checkbox-label:after {
+    width: 3px;
+    height: 7px;
+    top: 2px;
+    left: 5px;
+}
