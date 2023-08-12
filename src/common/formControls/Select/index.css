@@ -1,0 +1,8 @@
+.amusement-select__indicator-separator {
+    display: none;
+}
+
+.amusement-select__control {
+    flex: flex;
+    align-items: center;
+}

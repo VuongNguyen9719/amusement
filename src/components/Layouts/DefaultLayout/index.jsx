@@ -9,7 +9,7 @@ const DefaultLayout = ({ children }) => {
             className='w-full h-full flex bg-[#F8FAFC] overflow-hidden'
         >
             <Sidebar />
-            <div className='flex-1'>
+            <div className='flex-1 flex flex-col'>
                 <Headers />
                 {children}
             </div>

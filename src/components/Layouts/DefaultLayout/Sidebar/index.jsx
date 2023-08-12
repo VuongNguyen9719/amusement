@@ -10,7 +10,7 @@ const Sidebar = props => {
         <Scrollbar
             
         >
-            <div
+            <nav
                 className='w-[290px] bg-[#fff] border-r border-solid border-r-[#F8FAFC] h-full '
             >
                 <div
@@ -21,7 +21,7 @@ const Sidebar = props => {
                         <Main />
                     </div>
                 </div>
-            </div>
+            </nav>
         </Scrollbar>
     );
 };

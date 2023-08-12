@@ -40,12 +40,12 @@ const Headers = props => {
     }, [pathname])
 
     return (
-        <div
+        <header
             className='flex justify-between px-[20px] py-[16px] bg-[#fff] '
         >
             <p className='text-lg not-italic font-medium leading-7 text-[#364152]'>{menuActive && menuActive.name || ""}</p>
             <BoxAvatar />
-        </div>
+        </header>
     );
 };
 

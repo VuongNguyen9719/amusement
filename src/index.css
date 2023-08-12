@@ -9,3 +9,11 @@
 .bg-capcha {
     background-image: url('./assets/svg/bg-capcha.svg');
 }
+
+.content-container {
+    height: calc(100vh - 76px);
+}
+
+.width-box-statistic {
+    width: calc((100% / 2) - 20px);
+}

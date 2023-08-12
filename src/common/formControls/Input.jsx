@@ -232,7 +232,7 @@ class Input extends Component {
                 <div className={cssClass.join(' ')}>
                     {this.props.icon && (
                         <SvgIcon
-                            width={16}
+                            width={20}
                             icon={this.props.icon}
                             className={this.props.iconClassName}
                         />
