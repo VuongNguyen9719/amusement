@@ -1,5 +1,5 @@
 
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import SvgIcon from './SvgIcon';
 import helper from '@helper';
 import PropTypes from 'prop-types';
@@ -228,7 +228,7 @@ class Input extends Component {
         }
 
         return (
-            <div>
+            <Fragment>
                 <div className={cssClass.join(' ')}>
                     {this.props.icon && (
                         <SvgIcon
@@ -252,7 +252,7 @@ class Input extends Component {
                         {this.state.invalidMessage}
                     </div>
                 )}
-            </div>
+            </Fragment>
         );
     }
 }

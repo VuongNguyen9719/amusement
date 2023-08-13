@@ -45,7 +45,7 @@ const WrapperBox = ({
 }) => {
     return (
         <section
-            className="flex flex-col m-[5px] rounded-lg	bg-[#FFF] shadow-[0_0_4px_0_rgba(51,51,51,0.12)]"
+            className="flex flex-col m-[5px] rounded-lg	bg-[#FFF] shadow-[0_0_4px_0_rgba(51,51,51,0.12)] flex-1"
         >
             <Header title={title} onChange={onFilter}></Header>
             {children}

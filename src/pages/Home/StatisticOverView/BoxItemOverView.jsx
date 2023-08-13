@@ -19,7 +19,7 @@ const BoxItemOverView = ({
     const IconTitle = title?.icon || <Fragment />
     return (
         <div
-            className="width-box-statistic 2xl:w-[25% - 20px] m-[5px] pb-[10px] bg-[#fff] shadow-[0_0_6px_0_rgba(0,0,0,0.12)] rounded-xl flex flex-col gap-y-[20px]"
+            className="width-box-statistic 2xl:w-[calc(25%-25px)] m-[5px] pb-[10px] bg-[#fff] shadow-[0_0_6px_0_rgba(0,0,0,0.12)] rounded-xl flex flex-col gap-y-[20px]"
         >
             <div
                 className="py-[16px] px-[20px] flex justify-between	items-center border-b border-solid border-b-[#E3E8EF]"
@@ -51,7 +51,7 @@ const BoxItemOverView = ({
                             background: `#FFF`,
                             display: 'flex',
                             color:'#4B5565',
-                            maxHeight: '28px',
+                            // maxHeight: '28px',
                             // maxWidth: '94px'
                         }),
                       }}

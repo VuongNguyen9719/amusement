@@ -38,7 +38,7 @@ const Tab = ({
     defaultType = -1
 }) => {
     return (
-        <div className="flex gap-x-[24px] items-center h-[28px]">
+        <div className="flex gap-x-[24px] gap-y-[10px] items-center h-[28px] flex-wrap">
             {
                 data && data.length > 0 && 
                 data.map((it, index) => {

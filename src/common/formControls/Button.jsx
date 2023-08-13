@@ -48,6 +48,7 @@ class Button extends Component {
                     data-tooltip={self.props.dataTooltip ? self.props.dataTooltip : null}
                     onClick={self.props.onClick}
                     title={self.props.title ? self.props.title : ""}
+                    style={self.props.style}
                 >
                     {self.props.icon && typeof self.props.icon == "string" ? <i className={"icon " + self.props.icon} aria-hidden="true" /> : self.props.icon}
                     {self.props.text}

@@ -11,7 +11,7 @@ const Chart = props => {
     return (
         <HighchartsReact
             highcharts={Highcharts}
-            options={...props}
+            // options={...props}
             ref={chartRef}
         />
     );

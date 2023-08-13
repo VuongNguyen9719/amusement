@@ -2,18 +2,17 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import Tab from '@formControls/Tab'
-
 const Index = props => {
 
     const [defaultValueTab, setDefaultValueTab] = useState(0)
 
-    const onChange = ({type}) => {
+    const onChange = ({ type }) => {
         setDefaultValueTab(type)
     }
 
     return (
         <div>
-            <Tab 
+            <Tab
                 data={[
                     {
                         name: 'Tat ca',
@@ -35,11 +34,12 @@ const Index = props => {
                 defaultType={defaultValueTab}
             />
         </div>
+
     );
 };
 
 Index.propTypes = {
-    
+
 };
 
 export default Index;
