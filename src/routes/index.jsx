@@ -13,9 +13,11 @@ import ServicesGame from '@pages/ServicesGame';
 import ServicesGameWaterpark from '@pages/ServicesGameWaterpark'
 import TheaterManager from '@pages/TheaterManager'
 import UpcomingMovie from '@pages/UpcomingMovie';
+import Atoms from '@pages/Atoms';
 
 const publicRoutes = [
     { path: '/login', component: Login, layout: null },
+    { path: '/atoms', component: Atoms },
     { path: '/', component: Home },
     { path: '/manage-movie-showtimes', component: ManageMovieShowtimes },
     { path: '/additional-services', component: AdditionalServices },
