@@ -39,10 +39,10 @@ const groupItem = [
                         name: 'Quản lý lịch chiếu phhim',
                         path: '/manage-movie-showtimes',
                     },
-                    {
-                        name: 'Phim sắp chiếu',
-                        path: '/upcoming-movie',
-                    },
+                    // {
+                    //     name: 'Phim sắp chiếu',
+                    //     path: '/upcoming-movie',
+                    // },
                     {
                         name: 'Dịch vụ bổ trợ',
                         path: '/additional-services',
