@@ -1,5 +1,5 @@
-import Scroll from '@formControls/Scrollbar'
-import noImg from '@assets/img/no-image.jpg'
+import Scroll from '~formControls/Scrollbar'
+import noImg from '~assets/img/no-image.jpg'
 
 const Item = () => {
     return (

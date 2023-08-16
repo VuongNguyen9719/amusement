@@ -1,6 +1,6 @@
 import CurrentChoice from "./CurrentChoice";
 import Datepicker from "./Calendar";
-import Scrollbar from '@formControls/Scrollbar'
+import Scrollbar from '~formControls/Scrollbar'
 
 function Index() {
     return (

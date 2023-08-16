@@ -1,5 +1,5 @@
 import Scrollbar from 'react-smooth-scrollbar';
-import '@assets/style/custom.css'
+import '~assets/style/custom.css'
 
 export default function ({ children, ...res }) {
     return (

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Scrollbar from '@formControls/Scrollbar'
+import Scrollbar from '~formControls/Scrollbar'
 import LogoInfo from './LogoInfo';
 import Main from './Main';
 

@@ -1,11 +1,11 @@
 import { components } from "react-select";
 
-import Input from '@formControls/Input'
-import Button from '@formControls/Button'
-import IconAdd from '@assets/svg/IconAdd'
-import Select from '@formControls/Select'
-import IconSearch from '@assets/svg/IconSearch';
-import IconCalender from '@assets/svg/IconCalender'
+import Input from '~formControls/Input'
+import Button from '~formControls/Button'
+import IconAdd from '~assets/svg/IconAdd'
+import Select from '~formControls/Select'
+import IconSearch from '~assets/svg/IconSearch';
+import IconCalender from '~assets/svg/IconCalender'
 
 function Header() {
     const Placeholder = props => {

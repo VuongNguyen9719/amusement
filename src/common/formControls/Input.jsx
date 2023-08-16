@@ -1,7 +1,7 @@
 
 import React, { Component, Fragment } from 'react';
 import SvgIcon from './SvgIcon';
-import helper from '@helper';
+import helper from '~helper';
 import PropTypes from 'prop-types';
 
 class Input extends Component {

@@ -2,13 +2,13 @@
 import { Tooltip } from 'react-tooltip'
 import { useState } from 'react'
 
-import Scrollbar from '@formControls/Scrollbar'
-import Checkbox from '@formControls/Checkbox'
-import IconActionMenu from '@assets/svg/IconActionMenu'
-import IconWrapper from '@HOC/IconWrapper'
-import SvgIcon from '@formControls/SvgIcon.jsx'
+import Scrollbar from '~formControls/Scrollbar'
+import Checkbox from '~formControls/Checkbox'
+import IconActionMenu from '~assets/svg/IconActionMenu'
+import IconWrapper from '~HOC/IconWrapper'
+import SvgIcon from '~formControls/SvgIcon.jsx'
 import classNames from 'classnames'
-import noImg from '@assets/img/no-image.jpg'
+import noImg from '~assets/img/no-image.jpg'
 
 const Item = () => {
 

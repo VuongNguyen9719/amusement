@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Scrollbar from '@formControls/Scrollbar'
+import Scrollbar from '~formControls/Scrollbar'
 import StatisticOverView from './StatisticOverView';
 import OverViewMain from './OverViewMain';
 import TotalStatisfilm from './TotalStatisFilm';

@@ -1,12 +1,12 @@
 import React from 'react';
 import { Fragment } from 'react';
-import IconWrapper from '@HOC/IconWrapper'
-import SvgIcon from '@formControls/SvgIcon.jsx'
+import IconWrapper from '~HOC/IconWrapper'
+import SvgIcon from '~formControls/SvgIcon.jsx'
 
-import ChevronDown from '@assets/svg/ChevronDown'
-import ChevronUp from '@assets/svg/ChevronUp'
+import ChevronDown from '~assets/svg/ChevronDown'
+import ChevronUp from '~assets/svg/ChevronUp'
 
-import Select from '@common/formControls/Select';
+import Select from '~common/formControls/Select';
 import classNames from 'classnames';
 
 const BoxItemOverView = ({

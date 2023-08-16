@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import IconWrapper from '@HOC/IconWrapper'
-import SvgIcon from '@formControls/SvgIcon.jsx'
+import IconWrapper from '~HOC/IconWrapper'
+import SvgIcon from '~formControls/SvgIcon.jsx'
 
-import ChevronDown from '@assets/svg/ChevronDown'
-import ChevronUp from '@assets/svg/ChevronUp'
+import ChevronDown from '~assets/svg/ChevronDown'
+import ChevronUp from '~assets/svg/ChevronUp'
 
 const Item = ({label, value, percent, isUp}) => {
     const color = isUp ? '#2EA2C7' : '#D9534F'

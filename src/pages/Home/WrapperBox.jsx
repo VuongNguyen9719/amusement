@@ -1,9 +1,9 @@
 import React from 'react';
-import SelectForm from '@formControls/Select';
-import IconDatePicker from '@assets/svg/IconDatePicker'
+import SelectForm from '~formControls/Select';
+import IconDatePicker from '~assets/svg/IconDatePicker'
 
-import IconWrapper from '@HOC/IconWrapper'
-import SvgIcon from '@formControls/SvgIcon.jsx'
+import IconWrapper from '~HOC/IconWrapper'
+import SvgIcon from '~formControls/SvgIcon.jsx'
 
 const Header = ({title = '', onChange = () => {}}) => {
     return (

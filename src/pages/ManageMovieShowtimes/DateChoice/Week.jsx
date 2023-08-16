@@ -1,5 +1,8 @@
 import classNames from "classnames";
 import { useMemo } from "react";
+import { useDispatch } from "react-redux";
+
+import { showDialogCreateFilm } from '~reduxStore/Actions'
 
 function Week({
     week,
@@ -29,10 +32,14 @@ function Week({
         }
         return days;
     }, [week])
+
+    const dispatch = useDispatch()
+
     return (
         <div className="flex gap-x-[2px]">
             {
                 days && days.map((day, i) => {
+                    let dayString = toDayOfMonthString(day);
                     return (
                         <div
                             key={"day_" + i}
@@ -46,8 +53,9 @@ function Week({
                             style={{
                                 boxShadow: day.getMonth() == currentMonth ? `0px 1px 2px 0px rgba(51, 51, 51, 0.08)` : ''
                             }}
+                            onClick={() => dispatch(showDialogCreateFilm({ day }))}
                         >
-                            {toDayOfMonthString(day)}
+                            {dayString}
                         </div>
                     )
                 })

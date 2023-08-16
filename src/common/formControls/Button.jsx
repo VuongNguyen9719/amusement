@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import helper from "@helper";
+import helper from "~helper";
 
 class Button extends Component {
     constructor(props) {

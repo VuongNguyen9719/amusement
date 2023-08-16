@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useLocation } from 'react-router-dom';
-import groupItem from '@common/constants/groupItem';
+import groupItem from '~common/constants/groupItem';
 import BoxAvatar from './BoxAvatar';
 
 const Headers = props => {

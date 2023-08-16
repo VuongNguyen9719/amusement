@@ -1,6 +1,6 @@
 import React from 'react';
-import IconWrapper from '@HOC/IconWrapper'
-import SvgIcon from '@formControls/SvgIcon.jsx'
+import IconWrapper from '~HOC/IconWrapper'
+import SvgIcon from '~formControls/SvgIcon.jsx'
 import { Link } from 'react-router-dom';
 
 const LogoInfo = () => {

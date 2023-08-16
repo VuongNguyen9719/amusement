@@ -2,7 +2,7 @@
 import React, {useState} from 'react';
 import BoxItemOverView from './BoxItemOverView';
 
-import IconTotalRevenue from '@assets/svg/IconTotalRevenue';
+import IconTotalRevenue from '~assets/svg/IconTotalRevenue';
 
 const BoxTotalRevenue = props => {
     const [data, setData] =  useState([

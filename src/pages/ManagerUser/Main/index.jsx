@@ -1,4 +1,4 @@
-import Tab from '@formControls/Tab'
+import Tab from '~formControls/Tab'
 import ListUser from './ListUser';
 
 function Main() {

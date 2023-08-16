@@ -1,10 +1,10 @@
 
 
-import Input from '@formControls/Input'
-import Button from '@formControls/Button'
-import IconSearch from '@assets/svg/IconSearch';
-import IconAdd from '@assets/svg/IconAdd';
-import Tab from '@formControls/Tab'
+import Input from '~formControls/Input'
+import Button from '~formControls/Button'
+import IconSearch from '~assets/svg/IconSearch';
+import IconAdd from '~assets/svg/IconAdd';
+import Tab from '~formControls/Tab'
 import classNames from 'classnames';
 
 function WrapperMain({

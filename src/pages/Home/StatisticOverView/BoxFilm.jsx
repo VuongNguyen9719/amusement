@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import BoxItemOverView from './BoxItemOverView';
-import IconFilm from '@assets/svg/IconFilm'
+import IconFilm from '~assets/svg/IconFilm'
 
 const BoxFilm = props => {
     const [data, setData] =  useState([

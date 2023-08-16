@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import Tab from '@formControls/Tab'
+import Tab from '~formControls/Tab'
 const Index = props => {
 
     const [defaultValueTab, setDefaultValueTab] = useState(0)

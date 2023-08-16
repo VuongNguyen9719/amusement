@@ -1,8 +1,8 @@
-import Input from '@formControls/Input'
-import Button from '@formControls/Button'
-import IconAdd from '@assets/svg/IconAdd'
-import Select from '@formControls/Select'
-import IconSearch from '@assets/svg/IconSearch';
+import Input from '~formControls/Input'
+import Button from '~formControls/Button'
+import IconAdd from '~assets/svg/IconAdd'
+import Select from '~formControls/Select'
+import IconSearch from '~assets/svg/IconSearch';
 
 function Filter() {
 

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import BoxItemOverView from './BoxItemOverView';
 
-import VerifiedUser from '@assets/svg/VerifiedUser'
+import VerifiedUser from '~assets/svg/VerifiedUser'
 
 const BoxGame = props => {
     const [data, setData] =  useState([

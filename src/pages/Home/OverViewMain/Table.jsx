@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Input from '@formControls/Input'
-import Scrollbar from '@formControls/Scrollbar'
-import IconSearch from '@assets/svg/IconSearch';
+import Input from '~formControls/Input'
+import Scrollbar from '~formControls/Scrollbar'
+import IconSearch from '~assets/svg/IconSearch';
 
 const Item = ({
 

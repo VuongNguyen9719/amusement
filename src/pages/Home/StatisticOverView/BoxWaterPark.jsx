@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 
 import BoxItemOverView from './BoxItemOverView';
-import WaterPark from '@assets/svg/WaterPark'
+import WaterPark from '~assets/svg/WaterPark'
 
 const BoxWaterPark = props => {
     const [data, setData] =  useState([

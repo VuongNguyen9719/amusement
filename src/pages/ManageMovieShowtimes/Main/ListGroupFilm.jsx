@@ -1,4 +1,4 @@
-import Scrollbar from '@formControls/Scrollbar'
+import Scrollbar from '~formControls/Scrollbar'
 import GroupFilm from './GroupFilm';
 
 function ListGroupFilm() {

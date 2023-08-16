@@ -1,8 +1,8 @@
 
-import IconWrapper from '@HOC/IconWrapper'
-import SvgIcon from '@formControls/SvgIcon.jsx'
-import ChevronLeft from '@assets/svg/ChevronLeft';
-import ChevronRight from '@assets/svg/ChevronRight';
+import IconWrapper from '~HOC/IconWrapper'
+import SvgIcon from '~formControls/SvgIcon.jsx'
+import ChevronLeft from '~assets/svg/ChevronLeft';
+import ChevronRight from '~assets/svg/ChevronRight';
 
 function MonthHeader({
     currentMonth,

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import enumGroupSidebar from '@common/constants/enumGroupSidebar';
+import enumGroupSidebar from '~common/constants/enumGroupSidebar';
 
 import Item from './Item';
 import MultiItem from './MultiItem';
-import groupItem from '@common/constants/groupItem';
+import groupItem from '~common/constants/groupItem';
 
 
 

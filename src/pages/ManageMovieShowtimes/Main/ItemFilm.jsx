@@ -1,9 +1,9 @@
-import noImg from '@assets/img/no-image.jpg'
+import noImg from '~assets/img/no-image.jpg'
 
 function ItemFilm() {
     return (
         <div
-            className="w-[calc((100%/3)-40px)] p-2 border border-solid border-[#E3E8EF] bg-[#FCFCFD] flex gap-x-[12px] rounded-lg "
+            className="w-[calc((100%/3)-15px)] p-2 border border-solid border-[#E3E8EF] bg-[#FCFCFD] flex gap-x-[12px] rounded-lg "
         >
             <div className="w-[122px] h-[174px] relative flex-none rounded">
                 <img className="w-full h-full object-cover rounded" src={noImg} />

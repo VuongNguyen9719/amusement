@@ -1,7 +1,7 @@
 import React from 'react';
-import Input from '@common/formControls/Input';
-import Checkbox from '@formControls/Checkbox';
-import Button from '@formControls/Button';
+import Input from '~common/formControls/Input';
+import Checkbox from '~formControls/Checkbox';
+import Button from '~formControls/Button';
 
 const Form = props => {
     return (

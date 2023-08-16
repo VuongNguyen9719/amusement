@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import { Fragment } from 'react';
 
 import { DefaultLayout } from './Layouts';
-import { publicRoutes } from '@routes'
+import { publicRoutes } from '~routes';
 
 const App = props => {
     return (

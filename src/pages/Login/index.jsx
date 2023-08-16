@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 
 import Form from './Form';
 
-import IconWrapper from '@HOC/IconWrapper'
-import SvgIcon from '@formControls/SvgIcon.jsx'
+import IconWrapper from '~HOC/IconWrapper'
+import SvgIcon from '~formControls/SvgIcon.jsx'
 
 const Login = props => {
     return (

@@ -1,13 +1,13 @@
 
-import Statistic from '@assets/svg/Statistic';
-import IconFilm from '@assets/svg/IconFilm';
-import WaterPark from '@assets/svg/WaterPark';
-import Voucher from '@assets/svg/Voucher';
-import Account from '@assets/svg/Account';
-import User from '@assets/svg/User';
-import Client from '@assets/svg/Client';
-import LogOut from '@assets/svg/LogOut';
-import VerifiedUser from '@assets/svg/VerifiedUser';
+import Statistic from '~assets/svg/Statistic';
+import IconFilm from '~assets/svg/IconFilm';
+import WaterPark from '~assets/svg/WaterPark';
+import Voucher from '~assets/svg/Voucher';
+import Account from '~assets/svg/Account';
+import User from '~assets/svg/User';
+import Client from '~assets/svg/Client';
+import LogOut from '~assets/svg/LogOut';
+import VerifiedUser from '~assets/svg/VerifiedUser';
 
 import enumGroupSidebar from './enumGroupSidebar'
 
