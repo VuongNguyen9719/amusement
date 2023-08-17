@@ -19,6 +19,7 @@ export default defineConfig({
       "~helper": path.resolve(__dirname, './src/common/helper'),
       "~utils": path.resolve(__dirname, './src/common/utils'),
       "~HOC": path.resolve(__dirname, './src/common/HOC'),
+      "~hooks": path.resolve(__dirname, './src/common/hooks'),
       "~api": path.resolve(__dirname, './src/api'),
       "~customHook": path.resolve(__dirname, './src/common/custom-hook'),
       "~constants": path.resolve(__dirname, './src/constants'),

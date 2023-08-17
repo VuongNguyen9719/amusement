@@ -3,9 +3,9 @@ import noImg from '~assets/img/no-image.jpg'
 function ItemFilm() {
     return (
         <div
-            className="w-[calc((100%/3)-15px)] p-2 border border-solid border-[#E3E8EF] bg-[#FCFCFD] flex gap-x-[12px] rounded-lg "
+            className="w-[calc((100%/3)-15px)] p-2 border border-solid border-[#E3E8EF] bg-[#FCFCFD] flex flex-col 2xl:flex-row gap-y-3 2xl:gap-x-3 rounded-lg "
         >
-            <div className="w-[122px] h-[174px] relative flex-none rounded">
+            <div className="w-full 2xl:w-[122px] h-[174px] relative flex-none rounded">
                 <img className="w-full h-full object-cover rounded" src={noImg} />
                 <div className='absolute w-[28px] h-[28px] px-[8px] py-[6px] flex items-center justify-center rounded bg-[#222934B8] top-2 left-2 text-[#FFF] text-base not-italic font-medium leading-4'>1</div>
             </div>

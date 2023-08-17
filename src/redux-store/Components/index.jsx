@@ -1,12 +1,14 @@
 import { Fragment } from "react";
-// const DialogCreateFilm = lazyLoad(() => import('./DialogCreateFilm'));
 
 import DialogCreateFilm from './DialogCreateFilm'
+import Popper from "./Popper";
+
 
 export default function Dialogs() {
     return (
         <Fragment>
             <DialogCreateFilm />
+            <Popper />
         </Fragment>
     )
 }

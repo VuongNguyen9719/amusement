@@ -1,6 +1,7 @@
 import { cloneElement, useEffect, useRef, useState, } from "react";
 import classNames from "classnames";
 import IconClose from "~assets/svg/IconClose";
+import useClickOutside from '~hooks/useClickOutside'
 
 function Dialog({
     children,
@@ -12,7 +13,6 @@ function Dialog({
 }) {
     const [isOpen, setIsOpen] = useState(open);
     const [isClosing, setIsClosing] = useState(false);
-
     useEffect(() => {
         setIsOpen(open)
     }, [open])
@@ -42,8 +42,9 @@ function Dialog({
         <div className={classNames(
             "fixed inset-0 flex justify-center items-center z-10 transition-opacity",
             isClosing ? 'opacity-0' : 'opacity-100'
-
-        )}>
+            
+        )}
+        >
             <div className="w-full h-full fixed bg-black bg-opacity-50 animate-fade-in z-10" onClick={closeDialog}></div>
             <div className="z-20 flex gap-x-[12px]">
                 <div className={classNames("flex flex-col gap-y-[20px] rounded-xl bg-[#FFF] overflow-hidden min-w-[880px]", className)}>
