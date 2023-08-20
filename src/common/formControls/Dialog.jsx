@@ -14,6 +14,18 @@ function Dialog({
     const [isOpen, setIsOpen] = useState(open);
     const [isClosing, setIsClosing] = useState(false);
     useEffect(() => {
+        // if (!open) {
+        //     setIsClosing(true); // Khi đóng, bắt đầu hiệu ứng fade-out
+        //     if (closeTimeoutRef.current) {
+        //         clearTimeout(closeTimeoutRef.current)
+        //     }
+        //     closeTimeoutRef.current = setTimeout(() => {
+        //         setIsOpen(false)
+        //         setIsClosing(false); // Khi hoàn thành fade-out, đóng dialog
+        //     }, 300);
+        // }else {
+        //     setIsOpen(true)
+        // }
         setIsOpen(open)
     }, [open])
 
@@ -42,7 +54,7 @@ function Dialog({
         <div className={classNames(
             "fixed inset-0 flex justify-center items-center z-10 transition-opacity",
             isClosing ? 'opacity-0' : 'opacity-100'
-            
+
         )}
         >
             <div className="w-full h-full fixed bg-black bg-opacity-50 animate-fade-in z-10" onClick={closeDialog}></div>

@@ -1,5 +1,5 @@
 function IconAddPhoto({
-    width = 24,
+    width = 28,
     fill= "#4F46E5"
 }) {
     return (

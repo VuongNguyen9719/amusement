@@ -14,7 +14,6 @@ function IconWrapper({
     return (
         <div
             style={{ width: width + 'px', height: height + 'px' }}
-            data-tooltip-minisite={tooltip}
             tooltip-place={tooltipPlace}
             className={classNames(
                 'flex justify-center items-center',

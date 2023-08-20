@@ -63,7 +63,7 @@ const groupItem = [
                         path: '/manage-game',
                     },
                     {
-                        name: 'dịch vụ bổ trợ',
+                        name: 'Dịch vụ bổ trợ',
                         path: '/services-game',
                     },
                 ]
@@ -74,11 +74,11 @@ const groupItem = [
                 pathChild: ['/manage-game-waterpark', '/services-game-waterpark'],
                 items: [
                     {
-                        name: 'Quản lý trò chơi',
+                        name: 'Quản lý công viên nước',
                         path: '/manage-game-waterpark',
                     },
                     {
-                        name: 'dịch vụ bổ trợ',
+                        name: 'Dịch vụ bổ trợ',
                         path: '/services-game-waterpark',
                     },
                 ]

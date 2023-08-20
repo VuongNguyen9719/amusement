@@ -1,4 +1,4 @@
-function IconAddPhoto({
+function IconAddVideo({
     width = 24,
     fill= "#4F46E5"
 }) {
@@ -9,4 +9,4 @@ function IconAddPhoto({
     );
 }
 
-export default IconAddPhoto;
+export default IconAddVideo;

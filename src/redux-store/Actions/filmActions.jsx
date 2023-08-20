@@ -1,3 +1,3 @@
 import { createAction } from "@reduxjs/toolkit";
 
-export const showDialogCreateFilm = createAction('showDialogCreateFilm')
+export const showDialogCreateFilm = createAction('showDialogCreateFilm'); // todo remove

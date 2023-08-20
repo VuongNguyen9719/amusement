@@ -168,13 +168,17 @@ const FormAddFilm = ({ onClose }) => {
                 <div className='flex flex-col gap-y-1 cursor-pointer'>
                     <label className='text-[#4B5565] text-sm not-italic font-normal leading-5'>Ảnh đại diện</label>
                     <div className='p-[10px] flex items-center justify-center w-[100px] h-[100px] rounded-lg border border-solid border-[#E3E8EF] bg-[#FCFCFD]'>
-                        <IconAddPhoto />
+                        <IconWrapper width={28}>
+                            <SvgIcon icon={<IconAddPhoto />} />
+                        </IconWrapper>
                     </div>
                 </div>
                 <div className='flex flex-col gap-y-1  cursor-pointer'>
                     <label className='text-[#4B5565] text-sm not-italic font-normal leading-5'>Trailer phim</label>
                     <div className='p-[10px] flex items-center justify-center w-[100px] h-[100px] rounded-lg border border-solid border-[#E3E8EF] bg-[#FCFCFD]'>
-                        <IconAddVideo width={28} />
+                        <IconWrapper width={28}>
+                            <SvgIcon icon={<IconAddVideo />} />
+                        </IconWrapper>
                     </div>
                 </div>
             </div>
