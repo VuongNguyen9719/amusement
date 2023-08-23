@@ -3,8 +3,12 @@ import Button from '~formControls/Button'
 import IconAdd from '~assets/svg/IconAdd'
 import Select from '~formControls/Select'
 import IconSearch from '~assets/svg/IconSearch';
+import { useDispatch } from "react-redux";
+
+import { showDialogCreateFilm } from '~reduxStore/Actions'
 
 function Filter() {
+    const dispatch = useDispatch()
 
     return (
         <div
@@ -29,6 +33,7 @@ function Filter() {
                     boxShadow: `0px 0px 0px 1px #5E5ADB, 0px 1px 1px 0px rgba(0, 0, 0, 0.10)`
                 }}
                 icon={<IconAdd fill="#FFFFFF" />}
+                onClick={() => dispatch(showDialogCreateFilm({ day: new Date() }))}
             />
         </div>
     );

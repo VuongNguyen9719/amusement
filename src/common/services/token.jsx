@@ -20,14 +20,11 @@ const setToken = (newToken) => {
 
     if (newToken) {
         token = newToken;
+        localStorage.setItem('tokendata', JSON.stringify(token))
+    } else {
+        localStorage.removeItem('tokendata')
     }
     emitChange();
-}
-const setSecretkey = (secretkey) =>{
-    token = Object.assign({} , token , {secretkey})
-}
-const setpageId= (pageId) =>{
-    token = Object.assign({} , token , {pageId})
 }
 const getToken = () => {
     return token
@@ -36,8 +33,6 @@ const tokenServices = {
     onChange,
     getToken,
     setToken,
-    setSecretkey,
-    setpageId
 }
 
 export default tokenServices;

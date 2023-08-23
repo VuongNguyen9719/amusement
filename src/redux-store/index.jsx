@@ -2,9 +2,11 @@ import thunk from 'redux-thunk'
 import { applyMiddleware, combineReducers, createStore } from 'redux'
 import EventDriven from './event-driven'
 import ManagerFilm from './Slice/managerFilm'
+import ManagerMovieShowTimes from './Slice/manage-movie-showtimes'
 
 const rootReducer = combineReducers({
-    ManagerFilm
+    ManagerFilm,
+    ManagerMovieShowTimes
 });
 
 const store = createStore(rootReducer,
@@ -16,7 +18,6 @@ const store = createStore(rootReducer,
 );
 
 store.onDispatch = (callback, dependency) => {
-
     return EventDriven.register(callback, dependency);
 };
 

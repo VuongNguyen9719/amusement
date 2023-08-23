@@ -35,14 +35,14 @@ class Button extends Component {
             classList.push("disabled");
 
             return (
-                <span id={self.state.id} className={classList.join(" ")} data-tooltip={self.props.dataTooltip ? self.props.dataTooltip : null}>
+                <button id={self.state.id} className={classList.join(" ")} data-tooltip={self.props.dataTooltip ? self.props.dataTooltip : null}>
                     {self.props.icon && typeof self.props.icon == "string" ? <i className={"icon " + self.props.icon} aria-hidden="true" /> : self.props.icon}
                     {self.props.text}
-                </span>
+                </button>
             );
         } else {
             return (
-                <span
+                <button
                     id={self.state.id}
                     className={classList.join(" ")}
                     data-tooltip={self.props.dataTooltip ? self.props.dataTooltip : null}
@@ -52,7 +52,7 @@ class Button extends Component {
                 >
                     {self.props.icon && typeof self.props.icon == "string" ? <i className={"icon " + self.props.icon} aria-hidden="true" /> : self.props.icon}
                     {self.props.text}
-                </span>
+                </button>
             );
         }
     }

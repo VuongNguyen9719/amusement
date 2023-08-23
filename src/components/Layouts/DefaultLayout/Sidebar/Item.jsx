@@ -5,6 +5,7 @@ import IconWrapper from '~HOC/IconWrapper'
 import SvgIcon from '~formControls/SvgIcon.jsx'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
+import tokenServices from '../../../../common/services/token';
 
 function Item(props) {
 
@@ -30,6 +31,11 @@ function Item(props) {
     }, [isActive])
 
     const onToggleItem = (e) => {
+        
+        if (props.path === '/login') {
+            tokenServices.setToken();
+        }
+
         if (items && items.length > 0) {
             onClick && typeof onClick == 'function' && onClick()
         }
