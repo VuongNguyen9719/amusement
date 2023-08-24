@@ -19,46 +19,41 @@ const AuthToken = ({ children, ...props }) => {
     useEffect(() => {
         if (!token && location.pathname !== '/login') {
             navigate("/login");
-        }else {
+        } else {
             if (location.pathname === '/login' && token) {
                 navigate("/");
             }
         }
     }, [])
 
-    // useEffect(() => {
-    //     const check = () => {
+    useEffect(() => {
+        const check = () => {
+            if (!token) return;
+            const { expires_in } = token;
+            // tokenServices.setToken(token);
+            // if (!expires_in) return;
+            // let lifeTime = new Date(expires_in * 1000).getTime() - new Date().getTime();
+            // if (lifeTime <= 30 * 1000 && !isLoading) {
+            //     // nếu mounted rồi thì k loading nữa
+            //     if (!mounted) {
+            //         setIsLoading(true)
+            //     }
 
-    //         if (!token) return;
+            //     // getToken((data) => { // todo here
+            //     //     if (!mounted) {
+            //     //         setIsLoading(false)
+            //     //     }
+            //     //     setMount(true)
+            //     //     setTokenState(data && data.data)
+            //     //     tokenServices.setToken(data && data.data);
+            //     // })
 
-    //         const { expires_in } = token;
-
-    //         if (!expires_in) return;
-
-    //         let lifeTime = new Date(expires_in * 1000).getTime() - new Date().getTime();
-
-    //         if (lifeTime <= 30 * 1000 && !isLoading) {
-    //             // nếu mounted rồi thì k loading nữa
-    //             if (!mounted) {
-    //                 setIsLoading(true)
-    //             }
-
-    //             // getToken((data) => { // todo here
-    //             //     if (!mounted) {
-    //             //         setIsLoading(false)
-    //             //     }
-    //             //     setMount(true)
-    //             //     setTokenState(data && data.data)
-    //             //     tokenServices.setToken(data && data.data);
-    //             // })
-
-    //         }
-    //     }
-    //     const id = setInterval(check, 6000)
-    //     check();
-    //     return () => clearInterval(id)
-
-    // }, [token])
+            // }
+        }
+        const id = setInterval(check, 6000)
+        check();
+        return () => clearInterval(id)
+    }, [token])
     if (error) return null;
     if (!token && location.pathname !== '/login') return <Loading />;
 

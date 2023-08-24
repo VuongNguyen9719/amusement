@@ -26,7 +26,7 @@ function DialogCreateFilm() {
         <Dialog
             open={open}
             onClose={onClose}
-            title="Thêm phim"
+            title={dialogProps?.current?.id ? 'Cập nhật phim' : "Thêm phim"}
         >
             <CreateFilm {...dialogProps.current} onClose={onClose} />
         </Dialog>

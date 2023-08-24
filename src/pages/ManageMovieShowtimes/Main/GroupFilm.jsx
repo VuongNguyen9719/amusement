@@ -2,7 +2,8 @@ import ItemFilm from "./ItemFilm";
 
 function GroupFilm({
     label,
-    items
+    items,
+    calendar_day
 }) {
     return (
         <div
@@ -20,6 +21,7 @@ function GroupFilm({
                                 key={item.id}
                                 {...item}
                                 index={index + 1}
+                                calendar_day={calendar_day}
                             />
                         )
                     })

@@ -20,13 +20,15 @@ function DatePickerCustom({
             className
         )}>
             <span className="date-input">
-                {" "}
                 <DatePicker
                     selected={startDate}
                     onChange={(date) => onChange(date)}
                     dayClassName={() => "example-datepicker-day-class"}
                     popperClassName="example-datepicker-class"
                     todayButton="TODAY"
+                    timeInputLabel="Giờ:"
+                    dateFormat="MM/dd/yyyy h:mm aa"
+                    showTimeInput
                 />
             </span>
             <IconWrapper width={20} className='w-[30px]'>

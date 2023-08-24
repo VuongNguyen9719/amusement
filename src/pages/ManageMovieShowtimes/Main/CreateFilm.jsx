@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import IconDatePicker from '~assets/svg/IconDatePicker'
 import { format } from 'date-fns';
 import IconWrapper from '~HOC/IconWrapper'
@@ -14,26 +14,40 @@ import { formatDateToDDMMYYYY } from '~common/utils/dateUtils';
 import managerFilm from '../../../api/manager-film';
 import { toast } from 'react-toastify';
 import helper from '~helper'
+import enumStatusLoading from '~common/constants/enumStatusLoading'
+import DatePickerCustom from '~formControls/DatePicker';
+import Loading from '~formControls/Loading'
+import { onClosedDialogAddFilm } from '../../../redux-store/Actions/filmActions';
+import { useDispatch } from 'react-redux'
+import media from '../../../api/media';
 
-const FormAddFilm = ({ onClose, callbackData, data }) => {
+const FormAddFilm = ({ onClose, callbackData, data, isValid }) => {
     const [field, setField] = useState({
         name: '',
         original_name: '',
         description: '',
         duration: '',
         genre: '',
-        premiereSchedule: '',
+        premiere_schedule: new Date().getTime(),
         classify: '',
         actors: '',
         directors: '',
-        formatMovie: '',
+        format_movie: '',
         nation: '',
         avatar: '',
         trailer: '',
         ...data
     })
-
+    const imgInputRef = useRef();
     const listFieldRequired = ['name', 'original_name', 'description', 'duration', 'genre']
+    const countUpdate = useRef(0)
+    useEffect(() => {
+        if (data && Object.keys(data).length > 0 && countUpdate.current === 0 && isValid) {
+            console.log('data >>>', data);
+            setField(data)
+            countUpdate.current = 1
+        }
+    }, [data, isValid])
 
     useEffect(() => {
         let countFieldPass = 0;
@@ -59,6 +73,24 @@ const FormAddFilm = ({ onClose, callbackData, data }) => {
 
     }, [field])
 
+    const handleImageChange = (event) => {
+
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = async (e) => {
+                const base64 = e.target.result;
+                const respon = await media.uploadFile(base64); //todo
+            };
+            reader.readAsDataURL(file);
+        }
+    }
+    const triggerInputClick = (inputRef) => {
+        inputRef.current.click();
+    };
+    const onShowModalAddVideo = () => {
+
+    }
     return (
         <div
             className='flex flex-col gap-y-4  min-h-[510px]'
@@ -178,14 +210,12 @@ const FormAddFilm = ({ onClose, callbackData, data }) => {
                     <div className='flex gap-x-1'>
                         <p className='text-[#4B5565] text-sm not-italic font-normal leading-5'>Khởi chiếu</p>
                     </div>
-                    <Input
-                        className=""
-                        placeholder="Ngày khởi chiếu.."
-                        value={field.premiereSchedule}
-                        onChange={(value) => {
+                    <DatePickerCustom
+                        startDate={field.premiere_schedule}
+                        onChange={(date) => {
                             setField(prev => ({
                                 ...prev,
-                                premiereSchedule: value
+                                premiere_schedule: new Date(date).getTime()
                             }))
                         }}
                     />
@@ -199,11 +229,11 @@ const FormAddFilm = ({ onClose, callbackData, data }) => {
                     <Input
                         className=""
                         placeholder="Nhập định dạng.."
-                        value={field.formatMovie}
+                        value={field.format_movie}
                         onChange={(value) => {
                             setField(prev => ({
                                 ...prev,
-                                formatMovie: value
+                                format_movie: value
                             }))
                         }}
                     />
@@ -291,15 +321,26 @@ const FormAddFilm = ({ onClose, callbackData, data }) => {
             <div className='flex gap-x-3'>
                 <div className='flex flex-col gap-y-1 cursor-pointer'>
                     <label className='text-[#4B5565] text-sm not-italic font-normal leading-5'>Ảnh đại diện</label>
-                    <div className='p-[10px] flex items-center justify-center w-[100px] h-[100px] rounded-lg border border-solid border-[#E3E8EF] bg-[#FCFCFD]'>
+                    <div className='p-[10px] flex items-center justify-center w-[100px] h-[100px] rounded-lg border border-solid border-[#E3E8EF] bg-[#FCFCFD]'
+                        onClick={() => { triggerInputClick(imgInputRef) }}
+                    >
                         <IconWrapper width={28}>
                             <SvgIcon icon={<IconAddPhoto />} />
                         </IconWrapper>
+                        <input
+                            type="file"
+                            accept="image/*"
+                            ref={imgInputRef}
+                            style={{ display: 'none' }}
+                            onChange={handleImageChange}
+                        />
                     </div>
                 </div>
                 <div className='flex flex-col gap-y-1  cursor-pointer'>
                     <label className='text-[#4B5565] text-sm not-italic font-normal leading-5'>Trailer phim</label>
-                    <div className='p-[10px] flex items-center justify-center w-[100px] h-[100px] rounded-lg border border-solid border-[#E3E8EF] bg-[#FCFCFD]'>
+                    <div className='p-[10px] flex items-center justify-center w-[100px] h-[100px] rounded-lg border border-solid border-[#E3E8EF] bg-[#FCFCFD]'
+                        onClick={onShowModalAddVideo}
+                    >
                         <IconWrapper width={28}>
                             <SvgIcon icon={<IconAddVideo />} />
                         </IconWrapper>
@@ -318,8 +359,8 @@ const FormShowtimes = ({
 
     const [field, setField] = useState({
         price: 0,
-        start_time: '',
-        end_time: ''
+        start_time: new Date().getTime(),
+        end_time: new Date().getTime()
     })
 
     let [listShowTime, setListShowTime] = useState([...data])
@@ -356,8 +397,8 @@ const FormShowtimes = ({
         setListShowTime(clone)
         setField({
             price: 0,
-            start_time: '',
-            end_time: ''
+            start_time: new Date().getTime(),
+            end_time: new Date().getTime()
         })
     }
 
@@ -366,7 +407,6 @@ const FormShowtimes = ({
         clone = clone.filter(it => it.id !== id)
         setListShowTime(clone)
     }
-
     useEffect(() => {
         if (listShowTime.length > 0) {
             callbackData({
@@ -390,7 +430,7 @@ const FormShowtimes = ({
             >
                 <p className='text-[#4B5565] text-sm not-italic font-normal leading-5'>Giờ đã có lịch</p>
                 <div
-                    className='flex gap-x-2 '
+                    className='flex flex-wrap gap-2'
                 >
                     {
                         (() => {
@@ -447,27 +487,23 @@ const FormShowtimes = ({
                         <span className='text-[#F97066] text-sm not-italic font-normal leading-5'>*</span>
                     </div>
                     <div className='flex gap-x-4 items-center'>
-
-                        <Input
-                            className=""
-                            placeholder="Giờ bắt đầu.."
-                            value={field.start_time}
-                            onChange={(value) => {
+                        <DatePickerCustom
+                            startDate={field.start_time}
+                            onChange={(date) => {
                                 setField(prev => ({
                                     ...prev,
-                                    start_time: value
+                                    start_time: new Date(date).getTime()
                                 }))
                             }}
                         />
+
                         <span className='text-[#364152] text-sm not-italic font-normal leading-5'>-</span>
-                        <Input
-                            className=""
-                            placeholder="Giờ kết thúc.."
-                            value={field.end_time}
-                            onChange={(value) => {
+                        <DatePickerCustom
+                            startDate={field.end_time}
+                            onChange={(date) => {
                                 setField(prev => ({
                                     ...prev,
-                                    end_time: value
+                                    end_time: new Date(date).getTime()
                                 }))
                             }}
                         />
@@ -488,7 +524,7 @@ const FormShowtimes = ({
                 className='flex flex-col gap-y-1'
             >
                 <label className='text-[#4B5565] text-sm not-italic font-normal leading-5'>Giờ đã cài</label>
-                <div className='flex gap-x-2'>
+                <div className='flex gap-2 flex-wrap'>
                     {
                         listShowTime && listShowTime.length > 0 &&
                         listShowTime.map((it, index) => {
@@ -498,7 +534,10 @@ const FormShowtimes = ({
                                     key={index}
                                 >
                                     <div className='flex flex-col items-center justify-center px-[6px] py-1  '>
-                                        <p className='text-[#364152] text-xs not-italic font-medium leading-4 '>{it.start_time} - {it.end_time}</p>
+                                        <div className='flex gap-x-1 items-center'>
+                                            <p className='text-[#364152] text-xs not-italic font-medium leading-4 '>{typeof it.start_time === 'string' ? it.start_time : format(new Date(it.start_time), 'HH:mm:ss')}</p> -
+                                            <p className='text-[#364152] text-xs not-italic font-medium leading-4 '>{typeof it.end_time === 'string' ? it.end_time : format(new Date(it.end_time), 'HH:mm:ss')}</p>
+                                        </div>
                                         <p className='text-[#6366F1] not-italic font-medium leading-3 text-[10px]'>{it.price} đ</p>
                                     </div>
                                     <div
@@ -521,19 +560,21 @@ const FormShowtimes = ({
 
 function CreateFilm({
     onClose,
-    day
+    day,
+    id
 }) {
     const tabs = [
         { label: 'Thông tin phim', value: 0, component: FormAddFilm },
         { label: 'Cài lịch chiếu', value: 1, component: FormShowtimes },
     ]
 
+    const dispatch = useDispatch();
     const [defaultTab, setDefaultTab] = useState(0);
 
     const [dataFormAddFilm, setDataFormAddFilm] = useState();
     const [dataFormShowtimes, setDataFormShowtimes] = useState();
-
     const [dataShowTime, setDataShowTime] = useState([]);
+    const [statusFetch, setStatusFetch] = useState(enumStatusLoading.NONE)
 
     useEffect(() => {
         async function fetch() {
@@ -542,9 +583,118 @@ function CreateFilm({
             })
             setDataShowTime(dataRespon || [])
         }
-
         fetch()
     }, [])
+
+    useEffect(() => {
+        if (id) {
+            setStatusFetch(enumStatusLoading.LOADING);
+            async function fetch() {
+                try {
+                    const respon = await managerFilm.getDetailFilm({
+                        movie_id: id
+                    });
+
+                    if (respon) {
+                        setStatusFetch(enumStatusLoading.SUCCESS)
+                        setDataFormAddFilm({
+                            field: {
+                                "name": respon.name,
+                                "original_name": respon.original_name,
+                                "avatar": respon.avatar,
+                                "description": respon.description,
+                                "duration": respon.duration,
+                                "genre": respon.genre,
+                                "status": 1,
+                                "nation": respon.nation,
+                                "classify": respon.classify,
+                                "format_movie": respon.format_movie,
+                                "premiere_schedule": new Date(respon.premiere_schedule).getTime(),
+                                "trailer": respon.trailer,
+                                "directors": respon.directors,
+                                "actors": respon.actors,
+                                "calendar_day": format(day, 'yyyy-MM-dd'),
+                            },
+                            step: 0,
+                            isValid: true
+                        })
+                        setDataFormShowtimes({
+                            field: respon.show_times,
+                            step: 0,
+                            isValid: true
+                        })
+                    } else {
+                        setStatusFetch(enumStatusLoading.ERROR)
+                    }
+
+                } catch (error) {
+                    setStatusFetch(enumStatusLoading.ERROR)
+                    toast.error(`Đã xảy ra lỗi khi lấy thông tin phim. Lỗi: ${error}`)
+                }
+            }
+            fetch()
+        }
+    }, [id])
+
+    const onsubmit = async () => {
+        if (!dataFormAddFilm || !dataFormAddFilm.isValid || !dataFormShowtimes || !dataFormShowtimes.isValid) {
+            return toast.warn('Bạn chưa điền đủ thông tin!')
+        }
+
+        if (statusFetch === enumStatusLoading.LOADING) {
+            return toast.warn('Hệ thống đang xử lý, vui lòng chờ trong giây lát!')
+        }
+        setStatusFetch(enumStatusLoading.LOADING);
+
+        const fieldFormAddFilm = dataFormAddFilm?.field || {}
+        const dataShowTimes = [];
+        if (dataFormShowtimes.field && dataFormShowtimes.field.length > 0) {
+            dataFormShowtimes.field.forEach((it) => {
+                dataShowTimes.push({
+                    "price": it.price,
+                    "start_time": typeof it.start_time === 'string' ? it.start_time : format(new Date(it.start_time), 'HH:mm:ss'),
+                    "end_time": typeof it.end_time === 'string' ? it.end_time : format(new Date(it.end_time), 'HH:mm:ss'),
+                })
+            })
+        }
+        let data = {
+            "name": fieldFormAddFilm.name,
+            "original_name": fieldFormAddFilm.original_name,
+            "avatar": fieldFormAddFilm.avatar,
+            "description": fieldFormAddFilm.description,
+            "duration": fieldFormAddFilm.duration,
+            "genre": fieldFormAddFilm.genre,
+            "status": 1,
+            "nation": fieldFormAddFilm.nation,
+            "classify": fieldFormAddFilm.classify,
+            "format_movie": fieldFormAddFilm.format_movie,
+            "premiere_schedule": format(new Date(fieldFormAddFilm.premiere_schedule), 'yyyy-MM-dd HH:mm:ss.SSS'),
+            "trailer": fieldFormAddFilm.trailer,
+            "directors": fieldFormAddFilm.directors,
+            "actors": fieldFormAddFilm.actors,
+            "calendar_day": format(day, 'yyyy-MM-dd'),
+            "show_times": dataShowTimes
+        }
+        if (id) {
+            data.id = id;
+        }
+        try {
+            const respon = id ? await managerFilm.updateMovie(data) : await managerFilm.createMovie(data);
+
+            if (respon) {
+                setStatusFetch(enumStatusLoading.SUCCESS)
+                toast.success(id ? 'Sửa phim thành công!' : 'Thêm phim thành công!')
+                onClose()
+                dispatch(onClosedDialogAddFilm())
+            } else {
+                setStatusFetch(enumStatusLoading.ERROR)
+            }
+
+        } catch (error) {
+            setStatusFetch(enumStatusLoading.ERROR)
+            toast.error(`Đã xảy ra lỗi khi ${id ? 'sửa' : 'thêm'} phim. Lỗi: ${error}`)
+        }
+    }
 
     const CompActive = tabs[defaultTab]?.component;
 
@@ -556,7 +706,8 @@ function CreateFilm({
         canSubmit = dataFormShowtimes?.isValid && dataFormAddFilm?.isValid
     }
     return (
-        <div className="px-[20px] flex flex-col gap-y-[20px]">
+        <div className="px-[20px] flex flex-col gap-y-[20px] relative max-w-[880px]">
+            {enumStatusLoading.LOADING === statusFetch && <Loading />}
             <div
                 className="flex justify-between items-center"
             >
@@ -615,8 +766,9 @@ function CreateFilm({
                             setDataFormShowtimes(data)
                         }
                     }}
-                    data={defaultTab === 1 ? dataFormShowtimes?.field : dataFormAddFilm?.field}
+                    data={defaultTab === 1 ? dataFormShowtimes?.field || [] : dataFormAddFilm?.field || {}}
                     dataShowTime={dataShowTime}
+                    isValid={defaultTab === 1 ? dataFormShowtimes?.isValid : dataFormAddFilm?.isValid}
                 />
             }
             <div className='flex gap-x-4 mb-5 justify-end'>
@@ -635,12 +787,16 @@ function CreateFilm({
                     text={defaultTab === 1 ? 'Hoàn thành' : "Tiếp theo"}
                     onClick={() => {
                         if (canSubmit) {
-                            setDefaultTab(prev => {
-                                if (prev + 1 <= tabs.length) {
-                                    prev += 1;
-                                }
-                                return prev
-                            })
+                            if (defaultTab === 1) {
+                                onsubmit()
+                            } else {
+                                setDefaultTab(prev => {
+                                    if (prev + 1 <= tabs.length) {
+                                        prev += 1;
+                                    }
+                                    return prev
+                                })
+                            }
                         }
                     }}
                     className={classNames(

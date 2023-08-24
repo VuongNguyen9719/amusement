@@ -26,6 +26,34 @@ const ManagerMovieShowTimes = createSlice({
         },
         setMessage: (state, action) => {
             state.mess = action.payload;
+        },
+        deleteFilm: (state, action) => {
+            const idDelete = action.payload;
+            state.data = state.data.filter(it => it.id !== idDelete);
+
+            return state;
+        },
+        changeStatusFilm: (state, action) => {
+            const { id, status } = action.payload;
+            state.data = state.data.map(it => {
+                if (it.id == id) {
+                    it.status = status
+                }
+                return it;
+            });
+            return state;
+        },
+
+        resetState: () => {
+            return {
+                data: [],
+                status: enumStatusLoading.NONE,
+                mess: '',
+                filter: {
+                    skip: 0,
+                    limit: 200
+                }
+            }
         }
     },
 
@@ -35,6 +63,9 @@ export const {
     setData,
     setFilter,
     setMessage,
+    deleteFilm,
+    changeStatusFilm,
+    resetState
 } = ManagerMovieShowTimes.actions
 
 

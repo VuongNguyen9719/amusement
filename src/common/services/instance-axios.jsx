@@ -2,28 +2,39 @@ import axios from 'axios'
 import qs from 'qs'
 import tokenServices from './token'
 
-export const create = (options) => {
-    let configs = Object.assign({}, options, {
-        transformRequest: [
-            (data, headers) => {
-                headers.common = {};
-                let token = tokenServices.getToken();
-                const { access_token } = token || null;
-                if (access_token && Object.keys(access_token).length > 0) {
-                    headers.common.Authorization = `Bearer ${access_token}`;
-                }
+export const create = (options, baseUrl = `${import.meta.env.VITE_API_DOMAIN}`) => {
 
-                if (options && options.requester) {
-                    headers.common.requester = options.requester
-                }
-                return data
+    let token = localStorage.getItem('tokendata')
+    const tokenData = JSON.parse(token);
+    const access_token = tokenData?.access_token;
+    let configs = Object.assign({},
+        options,
+        {
+            transformRequest: [
+                (data, headers) => {
+                    headers.common = {};
+                    // let token = tokenServices.getToken();
+                    if (access_token && access_token.length > 0) {
+                        headers.common.authorization = `Bearer ${access_token}`;
+                    }
+
+                    if (options && options.requester) {
+                        headers.common.requester = options.requester
+                    }
+                    return data
+                },
+            ],
+            headers: {
+                'Authorization': `Bearer ${access_token}`, // Thêm header Authorization mặc định
+                'Content-Type': 'application/json',
             },
-        ]
-    })
+        },
+
+    )
 
 
     const instance = axios.create(configs);
-    instance.defaults.baseURL = `${import.meta.env.VITE_API_DOMAIN}`
+    instance.defaults.baseURL = baseUrl
 
     instance.interceptors.request.use(function (config) {
         let data = config.data;
